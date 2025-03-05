@@ -1,0 +1,1 @@
+ALTER TABLE windkraftanlagen RENAME to windtabelle

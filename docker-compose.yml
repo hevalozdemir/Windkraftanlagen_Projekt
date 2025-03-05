@@ -1,0 +1,34 @@
+version: "3.7"
+services:
+  db:
+    image: postgres:12.2
+    restart: on-failure
+    ports:
+      - 7120:5432
+    volumes:
+      - db-windkraftanlagen-data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime
+    environment:
+      POSTGRES_USER: hozdemir
+      POSTGRES_PASSWORD: sql123
+      POSTGRES_DB: windkraftanlagen
+
+  db-test:
+    image: postgres:12.2
+    restart: on-failure
+    ports:
+      - 7121:5432
+    volumes:
+      - db-windkraftanlagen-data-test:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime
+    environment:
+      POSTGRES_USER: hozdemir
+      POSTGRES_PASSWORD: sql123
+      POSTGRES_DB: windkraftanlagen
+
+volumes:
+  db-windkraftanlagen-data:
+    driver: local
+
+  db-windkraftanlagen-data-test:
+    driver: local

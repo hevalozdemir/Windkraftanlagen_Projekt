@@ -1,0 +1,155 @@
+Die Winddaten werden mindestens halbjährlich aktualisiert.
+
+Grundlage der Darstellung sind die Daten, die im Rahmen des erforderlichen Genehmigungsverfahrens auf der Grundlage des Bundesimmissionsschutzgesetzes dem Landesamt für Umwelt des Landes Schleswig-Holstein vorzulegen sind.
+
+Die Tabelle unterscheidet zwischen Anlagen und deren möglichen Leistungen, die
+
+    bereits in Betrieb sind
+    bereits genehmigt aber noch nicht in Betrieb genommen wurden
+    sich noch im Genehmigungsverfahren befinden.
+
+Es wird darauf hingewiesen, dass die Anlagenanzahl Abweichungen zu weiteren, insbesondere bundesweiten Erhebungen, aufweisen kann.
+Aufbau der Datei
+
+Folgende Spalten sind enthalten:
+
+    1.Kreis - Name des Kreises, auf dessen Gebiet sich die Anlage befindet
+    2.Gemeinde - Name der Gemeinde, auf deren Gebiet sich die Anlage befindet
+    3.Typ - Bezeichnung des Anlagentyps
+    4.Hersteller - Herstellerfirma
+    5.Nabenhöhe - Nabenhöhe in Metern – Dezimaltrenner ist Komma
+    6.Rotordurchmesser - Rotordurchmesser in Metern - Dezimaltrenner ist Komma
+    7.Schallleistungspegel - keine Gewähr für die Richtigkeit der Daten, es handelt sich um genehmigte Werte, Feld enthält neben der Zahl auch den Einheitentext
+    8.Leistung - Leistungsangabe der Anlage (Dezimaltrennzeichen ist Punkt)
+    9.Leistungsbezug – Einheit und Einheitenbezug zur Leistungszahl
+    10.Ostwert - Ostwert bzw. Rechtswert der geographischen Position
+    11.Nordwert - Nordwert bzw. Hochwert der geographischen Position
+    12.Genehmigungsdatum – Datum der Genehmigung
+    13.Inbetriebnahme - Datum der Inbetriebnahme
+    14.Status - Status der Angabe. Hier sind folgende Werte möglich: in Betrieb, vor Inbetriebnahme, im Gen.Verf. = im Genehmigungsverfahren
+    15.BST_Nr - Identifizierungsangabe
+    16.Anl_Nr – Identifizierungsangabe
+    17.AKTENZEICHEN – Identifizierungsangabe
+    18.Datendatum - im Format TT.MM.JJJJ
+    19.Datenquelle
+
+
+    1.windDirection: Analogische Windrichtung gewichtet in Grad. Genauigkeit 3°
+    2.windDirection10MinAvg: Durchschnittliche analoge Windrichtung gewichtet in Grad, 10 min Periode. Genauigkeit 3°
+    3.windSpeed: Windrichtung gewichtet in km/h. Genauigkeit 5%
+    4.windSpeed10MinAvg: Durchschnittliche Windrichtung gewichtet in km/h, Zeitraum 10 Minuten. Genauigkeit 5%
+    5.windSpeed10MinGust: Durchschnittliche Windrichtung, gewichtet in km/h, 10 Minuten Periode. Genauigkeit 5%
+
+
+
+
+ Rüzgar verileri en az altı ayda bir güncellenir.
+
+ Sunumun temeli, Federal İmisyon Kontrol Yasası uyarınca gerekli onay sürecinin bir parçası olarak Schleswig-Holstein Eyaleti Çevre Dairesi'ne sunulması gereken verilerdir.
+
+ Tablo, sistemler ve bunların olası hizmetleri arasındaki farkı gösterir
+
+  zaten çalışıyorlar
+  zaten onaylanmış ancak henüz faaliyete geçmemiştir
+  halen onay sürecindedir.
+
+ Sistem sayısının, özellikle ülke çapındaki diğer araştırmalardan farklı olabileceği dikkate alınmalıdır.
+ Dosyanın yapısı
+
+ Aşağıdaki sütunlar dahildir:
+
+  1.İlçe - tesisin bulunduğu bölgenin adı
+  2.Belediye - Tesisin bulunduğu bölgede bulunan belediyenin adı
+  3.Tip - sistem tipinin tanımı
+  4.Üretici - imalat şirketi
+  5.Hub yüksekliği - Metre cinsinden göbek yüksekliği - ondalık ayırıcı virgüldür
+  6.Rotor çapı - Metre cinsinden rotor çapı - Ondalık ayırıcı virgüldür
+  7.Ses gücü seviyesi - verilerin doğruluğu konusunda garanti verilmez, bunlar onaylanmış değerlerdir, alanda ünite metninin yanı sıra sayı da bulunur
+  8.Performans - sistemin performans bilgisi (ondalık ayırıcı noktadır)
+  9.Performans referansı – performans numarasına birim ve ünite referansı
+  10.Doğuya Doğru - Coğrafi konumun doğuya doğru veya doğruya doğru değeri
+  11.Kuzey değeri - coğrafi konumun kuzey değeri veya kuzey değeri
+  12.Onay Tarihi – Onay tarihi
+  13.Devreye alma - devreye alma tarihi
+  14.Durum - Göstergenin durumu. Burada aşağıdaki değerler mümkündür: çalışırken, devreye almadan önce, Gen.Verf'te. = onay sürecinde
+  15.BST_Nr - kimlik bilgileri
+  16.Anl_Nr – kimlik bilgileri
+  17.DOSYA NUMARASI – tanımlayıcı bilgiler
+  18.Veri tarihi - GG.AA.YYYY biçiminde
+  19.Veri kaynağı
+
+
+//Benjaminin yazdigi: ScarttChart icin!
+const inBetriebValue: [number, number][] = data.filter((x)=> {x.status === 'in Betrieb'}).map((x) => [x.nabenhoehe, x.leistung]);
+
+
+
+//https://opendata.schleswig-holstein.de/dataset/wettermessungen-in-der-landeshauptstadt-kiel-odala1
+    UV: UV-Index. Bereich 0-16, Genauigkeit 5%.
+    atmosphericPressure: Barometrischer Druck gewichtet in mb oder hPa. Genauigkeit 1,0 mb oder hPa
+    dailyEvapotranspiration: Durchschnittliche Evapotranspiration gewichtet in Millimeter, Zeitraum 1 Tag. Genauigkeit 5%
+    dayEvapotranspiration: Heutige Evapotranspiration gewichtet in Millimetern. Genauigkeit 5%
+    dewPoint: Außentaupunktwert gewichtet in Celsius degry 1°C
+    forecastIcon: Zahl, die ein Symbol darstellt, das Sie wissen lässt, ob Sie Sonne, teilweise bewölkt, Wolken, Regen oder Schnee erwarten.
+    heatIndex: Außenhitzeindexwert gewichtet in Celsius degry 1,5°C
+    monthEvapotranspiration: Monatsdurchschnitt der Evapotranspiration gewichtet in Millimeter, 30 Tage Zeitraum. Genauigkeit 5%
+    precipitation: Niederschlag gewichtet in Millimetern. Genauigkeit 4%
+    precipitation15MinAvg: Durchschnittliche Niederschlagsmenge gewichtet in Millimetern, 15 Minuten Zeitraum. Genauigkeit 4%
+    precipitationDaily: Durchschnittliche Niederschlagsmenge gewichtet in Millimeter, Periode täglich. Genauigkeit 4%
+    precipitationDay: Heutige Niederschlagsmenge gewichtet in Millimetern. Genauigkeit 4%
+    precipitationLast24Hour: Durchschnittliche Niederschlagsmenge gewichtet in Millimeter, Zeitraum 24 Stunden. Genauigkeit 4%
+    precipitationLastHour: Durchschnittliche Niederschlagsmenge gewichtet in Millimeter, Zeitraum 1 Stunde. Genauigkeit 4%
+    precipitationMonth: Niederschlagsmenge des aktuellen Monats, gewichtet in Millimetern. Genauigkeit 4%
+    precipitationStorm: Aktueller Gewitterniederschlag gewichtet in Millimetern. Genauigkeit 4%
+    precipitationYear: Niederschlag des aktuellen Jahres, gewichtet in Millimetern. Genauigkeit 4%
+    relativeHumidity: Außenluftfeuchtigkeit gewichtet in %. Genauigkeit 2%
+    solarRadiation: Sonneneinstrahlung gewichtet in Watt pro Quadratmeter. Genauigkeit 5%
+    temperature: Außentemperatur gewichtet in °C. Genauigkeit 0,3°C
+    thswIndex: Temp/Hum/Solar/Wind Index gewichtet in Celsius Grad. Genauigkeit 2°C
+    windChill: Outside wind chill vue weighted in celsius degry 1°C
+    1.windDirection: Analogische Windrichtung gewichtet in Grad. Genauigkeit 3°
+    2.windDirection10MinAvg: Durchschnittliche analoge Windrichtung gewichtet in Grad, 10 min Periode. Genauigkeit 3°
+    3.windSpeed: Windrichtung gewichtet in km/h. Genauigkeit 5%
+    4.windSpeed10MinAvg: Durchschnittliche Windrichtung gewichtet in km/h, Zeitraum 10 Minuten. Genauigkeit 5%
+    5.windSpeed10MinGust: Durchschnittliche Windrichtung, gewichtet in km/h, 10 Minuten Periode. Genauigkeit 5%
+    yearEvapotranspiration: Durchschnittliche Evapotranspiration eines Jahres, gewichtet in Millimeter, Zeitraum 1 Jahr. Genauigkeit 5%
+
+
+ 1.rüzgar Yönü: Derece cinsinden ağırlıklandırılmış benzer rüzgar yönü. Doğruluk 3°
+ 2.WindDirection10MinAvg: Derece cinsinden ağırlıklandırılmış ortalama analog rüzgar yönü, 10 dakikalık dönem. Doğruluk 3°
+ 3.Rüzgar Hızı: Rüzgarın km/saat cinsinden ağırlığı. Doğruluk %5
+ 4.rüzgar Hızı10MinAvg: Km/saat cinsinden ortalama rüzgar yönü, 10 dakikalık süre. Doğruluk %5
+ 5.WindSpeed10MinGust: Ortalama rüzgar yönü, km/saat cinsinden ağırlıklandırılmış, 10 dakikalık süre. Doğruluk %5
+
+
+
+ Gemessene und berechnete Werte
+
+     UV: UV-Index. Bereich 0-16, Genauigkeit 5%.
+     atmosphericPressure: Barometrischer Druck gewichtet in mb oder hPa. Genauigkeit 1,0 mb oder hPa
+     dailyEvapotranspiration: Durchschnittliche Evapotranspiration gewichtet in Millimeter, Zeitraum 1 Tag. Genauigkeit 5%
+     dayEvapotranspiration: Heutige Evapotranspiration gewichtet in Millimetern. Genauigkeit 5%
+     dewPoint: Außentaupunktwert gewichtet in Celsius degry 1°C
+     forecastIcon: Zahl, die ein Symbol darstellt, das Sie wissen lässt, ob Sie Sonne, teilweise bewölkt, Wolken, Regen oder Schnee erwarten.
+     heatIndex: Außenhitzeindexwert gewichtet in Celsius degry 1,5°C
+     monthEvapotranspiration: Monatsdurchschnitt der Evapotranspiration gewichtet in Millimeter, 30 Tage Zeitraum. Genauigkeit 5%
+     precipitation: Niederschlag gewichtet in Millimetern. Genauigkeit 4%
+     precipitation15MinAvg: Durchschnittliche Niederschlagsmenge gewichtet in Millimetern, 15 Minuten Zeitraum. Genauigkeit 4%
+     precipitationDaily: Durchschnittliche Niederschlagsmenge gewichtet in Millimeter, Periode täglich. Genauigkeit 4%
+     precipitationDay: Heutige Niederschlagsmenge gewichtet in Millimetern. Genauigkeit 4%
+     precipitationLast24Hour: Durchschnittliche Niederschlagsmenge gewichtet in Millimeter, Zeitraum 24 Stunden. Genauigkeit 4%
+     precipitationLastHour: Durchschnittliche Niederschlagsmenge gewichtet in Millimeter, Zeitraum 1 Stunde. Genauigkeit 4%
+     precipitationMonth: Niederschlagsmenge des aktuellen Monats, gewichtet in Millimetern. Genauigkeit 4%
+     precipitationStorm: Aktueller Gewitterniederschlag gewichtet in Millimetern. Genauigkeit 4%
+     precipitationYear: Niederschlag des aktuellen Jahres, gewichtet in Millimetern. Genauigkeit 4%
+     relativeHumidity: Außenluftfeuchtigkeit gewichtet in %. Genauigkeit 2%
+     solarRadiation: Sonneneinstrahlung gewichtet in Watt pro Quadratmeter. Genauigkeit 5%
+     temperature: Außentemperatur gewichtet in °C. Genauigkeit 0,3°C
+     thswIndex: Temp/Hum/Solar/Wind Index gewichtet in Celsius Grad. Genauigkeit 2°C
+     windChill: Outside wind chill vue weighted in celsius degry 1°C
+     windDirection: Analogische Windrichtung gewichtet in Grad. Genauigkeit 3°
+     windDirection10MinAvg: Durchschnittliche analoge Windrichtung gewichtet in Grad, 10 min Periode. Genauigkeit 3°
+     windSpeed: Windrichtung gewichtet in km/h. Genauigkeit 5%
+     windSpeed10MinAvg: Durchschnittliche Windrichtung gewichtet in km/h, Zeitraum 10 Minuten. Genauigkeit 5%
+     windSpeed10MinGust: Durchschnittliche Windrichtung, gewichtet in km/h, 10 Minuten Periode. Genauigkeit 5%
+     yearEvapotranspiration: Durchschnittliche Evapotranspiration eines Jahres, gewichtet in Millimeter, Zeitraum 1 Jahr. Genauigkeit 5%

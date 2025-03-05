@@ -1,0 +1,21 @@
+CREATE TABLE windkraftanlagen (
+    id BIGSERIAL PRIMARY KEY,
+    kreis TEXT,
+    gemeinde TEXT,
+    type TEXT,
+    hersteller TEXT,
+    nabenhoehe DECIMAL,
+    rotordurchmesser DECIMAL,
+    schallleistungspegel TEXT,
+    leistung NUMERIC,
+    leistungsbezug TEXT,
+    ostwert NUMERIC,
+    nordwert NUMERIC,
+    genehmigt_am DATE,
+    inbetriebnahme DATE,
+    status TEXT,
+    bst_nr NUMERIC,
+    anl_nr NUMERIC,
+    datendatum DATE,
+    datenquelle TEXT
+)
