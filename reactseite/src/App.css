@@ -1,0 +1,129 @@
+.App {
+  text-align: center;
+}
+
+
+.App-header {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(143, 30, 30);
+  font-family: 'Lato', sans-serif;
+}
+
+
+.containergf {
+  height: 400px;
+  width: 900px;
+  margin: auto; /* Haritayı ortalamak için */
+  border: 2px solid rgb(226, 222, 222); /* Opsiyonel: Harita etrafında siyah bir kenarlık */
+}
+.containerpie {
+  height: 350%;
+  width: 90%;
+  margin: auto; /* Haritayı ortalamak için */
+  border: 2px solid rgb(226, 222, 222); /* Opsiyonel: Harita etrafında siyah bir kenarlık */
+
+}
+
+.containertext {
+  height: 120px;
+  width: 100%;
+  margin: auto; /* Haritayı ortalamak için */;
+}
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  
+}
+
+
+
+
+/* Link stilleri */
+.link {
+  flex: 1;
+  padding: 20px;
+  background-color:rgb(70, 70, 121);
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  max-width: 200px; /* Buton genişliği, isteğe bağlı */
+}
+
+.header {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 1%;
+  width: 100%;
+  height: 20% ;
+
+}
+
+/* The navbar container */
+.topnav {
+  overflow: hidden;
+  background: linear-gradient(to right, #545581, rgb(131, 169, 212));
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 24px 16px;
+  text-decoration: none;
+}
+
+/* Links - change color on hover */
+.topnav a:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+
+.three-column-layout {
+  display: flex;
+  justify-content: space-between; /* Sütunlar arasında boşluk bırak */
+  gap: 20px; /* Sütunlar arasındaki boşluğu ayarla */
+  padding: 20px;
+}
+
+.column {
+  flex: 1; /* Her sütun eşit genişlikte olur */
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.footer {
+  background: linear-gradient(to right, #545581, rgb(131, 169, 212));
+  text-align: left;
+  padding: 2px;
+  font-size: 8px;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
